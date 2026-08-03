@@ -1,0 +1,16 @@
+# Compiled Java & Maven artifacts
+target/
+*.class
+*.jar
+*.war
+
+# Node & Angular build artifacts
+node_modules/
+dist/
+.angular/
+.vscode/
+.idea/
+
+# OS specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,50 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: payment-service
+  
+  datasource:
+    url: jdbc:h2:mem:paymentdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+
+jwt:
+  secret: dGhpc0lzQVNlY3JldEtleUZvckpXVENvbXBhdGliaWxpdHlXaXRoU3ByaW5nU2VjdXJpdHlBZGFwdGl2ZVRyYW5zcG9ydFBheW1lbnRTZXJ2aWNlMjAyNg==
+  expiration: 86400000
+
+wave:
+  simulation:
+    api-url: https://api.wave.com/v1/checkout/simulate
+    merchant-name: AbuDhabi-SmartTransport-IPM2026
+    default-currency: XOF

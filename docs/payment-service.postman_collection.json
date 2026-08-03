@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "a918237b-9912-421b-8719-payment-service-ipm2026",
+		"name": "Payment Service API (Groupe 3 - Hackathon IPM 2026)",
+		"description": "Collection complète des requêtes de test pour le microservice Payment Service.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Portefeuille - Solde",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/wallet/USR_1001",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8083",
+					"path": ["api", "wallet", "USR_1001"]
+				}
+			}
+		},
+		{
+			"name": "2. Recharge Wave (Simulation)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"USR_1001\",\n  \"cardId\": \"CARD_NFC_883921\",\n  \"phoneNumber\": \"+2250700000000\",\n  \"amount\": 5000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/payments/wave/recharge",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8083",
+					"path": ["api", "payments", "wave", "recharge"]
+				}
+			}
+		},
+		{
+			"name": "3. Débit Trajet Bus (Interaction Groupe 2)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"USR_1001\",\n  \"cardId\": \"CARD_NFC_883921\",\n  \"rideId\": \"RIDE_9912\",\n  \"lineId\": \"LINE_01\",\n  \"passengerType\": \"REGULAR\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/payments/process-ride",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8083",
+					"path": ["api", "payments", "process-ride"]
+				}
+			}
+		},
+		{
+			"name": "4. Calculateur de Tarif",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"lineId\": \"LINE_01\",\n  \"passengerType\": \"STUDENT\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/fares/calculate",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8083",
+					"path": ["api", "fares", "calculate"]
+				}
+			}
+		},
+		{
+			"name": "5. Historique Utilisateur",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/payments/history/USR_1001",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8083",
+					"path": ["api", "payments", "history", "USR_1001"]
+				}
+			}
+		},
+		{
+			"name": "6. Alertes de Fraude (Bonus)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/fraud/alerts",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8083",
+					"path": ["api", "fraud", "alerts"]
+				}
+			}
+		},
+		{
+			"name": "7. Statistiques Financières (Bonus)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/stats/dashboard",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8083",
+					"path": ["api", "stats", "dashboard"]
+				}
+			}
+		}
+	]
+}
