@@ -36,15 +36,15 @@ import {
       <!-- Top Stats Bar -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
         <div class="card" style="padding: 16px;">
-          <div class="balance-label">Total Rechargé (Wave)</div>
+          <div class="balance-label">Total Rechargé (Plateforme Globale)</div>
           <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-green);">{{ stats?.totalRecharged || 0 }} XOF</div>
         </div>
         <div class="card" style="padding: 16px;">
-          <div class="balance-label">Total Débité (Trajets)</div>
+          <div class="balance-label">Total Débité (Trajets Bus)</div>
           <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-cyan);">{{ stats?.totalDebited || 0 }} XOF</div>
         </div>
         <div class="card" style="padding: 16px;">
-          <div class="balance-label">Transactions Totales</div>
+          <div class="balance-label">Total Transactions Réseau</div>
           <div style="font-size: 1.4rem; font-weight: 700; color: #fff;">{{ stats?.totalTransactionsCount || 0 }}</div>
         </div>
         <div class="card" style="padding: 16px;">
